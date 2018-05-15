@@ -2,7 +2,7 @@ require 'pry'
 
 class Owner
   attr_accessor :name
-  attr_reader :species, :pets
+  attr_reader :species
   @@all = []
   @@count = 0
 
@@ -10,6 +10,7 @@ class Owner
   def initialize(species)
     @species = species
     self.class.all << self
+    @pets
     @@count += 1
   end
 
@@ -40,13 +41,7 @@ class Owner
 
   def buy_fish(fish_name)
     fish = Fish.new(fish_name)
-    # self.pets[:fishes] << fish
-    self.pets.each do |type, pets|
-      if type == :fishes
-        pets << fish
-      end
-      binding.pry
-    end
+
   end
 
   def buy_cat(cat_name)
